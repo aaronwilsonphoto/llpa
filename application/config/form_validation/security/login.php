@@ -41,4 +41,4 @@ $config['login_rules'] = [
 ];
 
 /* End of file login.php */
-/* Location: config/form_validation/security/login.php */
+/* Location: /config/form_validation/security/login.php */

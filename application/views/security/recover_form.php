@@ -14,7 +14,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 ?>
 
-<h1>Account Recovery</h1>
+<div class="position">
+	<div class = "container">
+
+		<h1>Account Recovery</h1>
 
 <?php
 if( isset( $disabled ) )
@@ -109,17 +112,17 @@ if( isset( $show_form ) )
 		 <?php echo form_open(); ?>
 			<div>
 				<fieldset>
-					<legend>Enter your account's email address:</legend>
+					<label>Enter your account's email address:</label>
 					<div>
 
 						<?php
 							// EMAIL ADDRESS *************************************************
-							echo form_label('Email Address','email', ['class'=>'form_label'] );
+							
 
 							$input_data = [
 								'name'		=> 'email',
 								'id'		=> 'email',
-								'class'		=> 'form_input',
+								'class'		=> 'mdl-textfield__input',
 								'maxlength' => 255
 							];
 							echo form_input($input_data);
@@ -127,6 +130,7 @@ if( isset( $show_form ) )
 
 					</div>
 				</fieldset>
+				<br />
 				<div>
 					<div>
 
@@ -135,6 +139,7 @@ if( isset( $show_form ) )
 							$input_data = [
 								'name'  => 'submit',
 								'id'    => 'submit_button',
+								'class' => 'mdl-button mdl-js-button mdl-button--raised',
 								'value' => 'Send Email'
 							];
 							echo form_submit($input_data);
@@ -145,7 +150,10 @@ if( isset( $show_form ) )
 			</div>
 		</form>
 
+	</div>
+</div>
+
 	<?php
 }
 /* End of file recover_form.php */
-/* Location: /community_auth/views/examples/recover_form.php */
+/* Location: /views/examples/recover_form.php */

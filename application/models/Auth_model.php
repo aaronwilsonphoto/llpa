@@ -598,4 +598,4 @@ class Auth_model extends MY_Model {
 }
 
 /* End of file Auth_model.php */
-/* Location: /community_auth/models/Auth_model.php */
+/* Location: /models/Auth_model.php */

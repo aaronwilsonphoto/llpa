@@ -2,7 +2,6 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * Community Auth - security Controller
  *
  * Community Auth is an open source authentication application for CodeIgniter 3
  *
@@ -13,7 +12,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @link        http://community-auth.com
  */
 
-class Auth extends MY_Controller
+class Security extends MY_Controller
 {
 	public function __construct()
 	{
@@ -42,7 +41,9 @@ class Auth extends MY_Controller
 		{
 			echo $this->load->view('security/page_header', '', TRUE);
 
-			echo '<p>You are logged in as Admin!</p>';
+			$message = "You are logged in as Admin!";
+			echo "<script type='text/javascript'>alert('$message');</script>";
+			echo $this->load->view('security/admin', '', TRUE);
 
 			echo $this->load->view('security/page_footer', '', TRUE);
 		}
@@ -57,13 +58,16 @@ class Auth extends MY_Controller
 	 */
 	public function home()
 	{
-		$this->is_logged_in();
+		if( $this->require_role('employee') )
+		{
 		
 		echo $this->load->view('security/page_header', '', TRUE);
 
-		echo '<p>You are logged in as an Employee</p>';
+		echo '<p>You are logged in as Employee</p>';
 
 		echo $this->load->view('security/page_footer', '', TRUE);
+
+		}
 	}
 	
 	// -----------------------------------------------------------------------
@@ -192,9 +196,9 @@ class Auth extends MY_Controller
 	{
 		// Customize this array for your user
 		$user_data = [
-			'username'   => 'testinguser',
+			'username'   => 'qwerty',
 			'passwd'     => 'Aw907074',
-			'email'      => 'anabisdelta9@gmail.com',
+			'email'      => 'aaronwilsonprofessional@gmail.com',
 			'auth_level' => '9', // 9 if you want to login @ security/index.
 		];
 
@@ -669,5 +673,4 @@ class Auth extends MY_Controller
 	// -----------------------------------------------------------------------
 }
 
-/* End of file security.php */
-/* Location: /controllers/security.php */
+/* End of file Security.php */

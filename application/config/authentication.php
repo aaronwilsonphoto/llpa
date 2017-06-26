@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['levels_and_roles'] = [
 	'1' => 'customer',
-	'6' => 'manager',
+	'6' => 'employee',
 	'9' => 'admin'
 ];
 
@@ -42,7 +42,7 @@ $config['levels_and_roles'] = [
 */
 
 $config['groups'] = [
-	'employees' => 'manager,admin'
+	'employees' => 'employee,admin'
 ];
 
 /*
@@ -330,7 +330,7 @@ $config['redirect_to_https'] = FALSE;
 | Make sure to remove any file extension, as this string is passed to config->load().
 */
 
-$config['login_form_validation_file'] = 'form_validation/examples/login';
+$config['login_form_validation_file'] = 'form_validation/security/login';
 
 /*
 | -----------------------------------------------------------------
