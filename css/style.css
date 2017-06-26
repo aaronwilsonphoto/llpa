@@ -1,0 +1,248 @@
+/* Space out content a bit */
+body {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  min-width: 360px;
+}
+
+p.italic {
+  font-style: italic;
+}
+
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+
+/* Custom page header */
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover {
+    color: #fff;
+    background-color: #7c9ec3;
+}
+
+.navbar-inverse .navbar-nav li a {
+    color: white;
+}
+.navbar-inverse .navbar-nav li a:hover {
+    background-color: #3a79a6;
+}
+
+.navbar-header {
+  align-content: center;
+}
+
+.navbar-fixed-top {
+  background-image: none;
+  background-color: #2b5f8e;
+}
+
+.navbar-fixed-bottom {
+    background-color: #2b5f8e;
+}
+
+.page-header {
+  position: relative;
+  top: 0px;
+  text-align: center;
+  border-style: none;
+  margin-top: -10px;
+}
+
+.header-image {
+  max-width: 65%;
+}
+
+.filler {
+  margin-top: 100px;
+}
+
+.filler-less {
+  margin-top: 130px;
+}
+
+
+.center-content {
+  text-align: center;
+  margin: 10px;
+}
+
+.center-content-less {
+  text-align: center;
+  margin: 20px;
+}
+
+
+
+.btn {
+  padding: 0px 10px;
+  background-image: none;
+  background-color: #2b5f8e;
+  border-radius: 0px;
+  width: 152px;
+  height: inherit;
+  color: white;
+  -webkit-transition: background-color 2s; /* Safari 3.1 to 6.0 */
+  transition: background-color 2s;
+}
+
+.btn:hover {
+  background-color: #2b5f8e;
+  background-image: none;
+  text-shadow: none;
+  color: white;
+}
+
+.btn.focus, .btn:focus, .btn:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.details {
+  display: none !important;
+}
+
+.accountdetails {
+  background-color: white;
+  font-size: 1.5em;
+  padding: .5em 1em .5em 1em;
+}
+
+.accountdetails-heading {
+  font-size: 1.7em;
+}
+
+.error {
+  color: red !important;
+  margin-top: .5em;
+}
+
+.mdl-button {
+  margin-bottom: 1em;
+}
+
+.mdl-card p.login {
+  font-size: 1.3em;
+}
+
+.mdl-card p {
+  font-size: 18px;
+}
+
+/* Login Form */
+.position {
+position: relative;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+margin-top: -30px;
+}
+
+.wrapper {    
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form-signin {
+  max-width: 360px;
+  padding: 30px 38px 66px;
+  margin: 0 auto;
+  background-color: #eee;
+  border: 3px solid rgba(0,0,0,0.1);  
+  }
+
+.form-signin-heading {
+  text-align:center;
+  margin-bottom: 30px;
+}
+
+.form-invite {
+  max-width: 768px;
+  min-width: 260px;
+  padding: 30px 38px 66px;
+  margin: 0 auto;
+  background-color: #eee;
+  border: 3px solid rgba(0,0,0,0.1);  
+  }
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
+
+input[type="email"] {
+  margin-bottom: 0px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+/* Custom page footer */
+.footer {
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+  .header-image {
+  max-width: 55%;
+  }
+  .login1 {
+    font-size: .6em;
+  }
+}
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  .header-image {
+  max-width: 35%;
+  }
+  p {
+    font-size: 1.5em;
+  }
+  a.login {
+    font-size: .9em;
+  }
+}
