@@ -59,9 +59,7 @@ class Security extends MY_Controller
 			}
 			else
 			{		
-				echo $this->load->view('security/page_header', '', TRUE);
-				echo '<p>Please Login <a href = "login">here</a></p>';	
-				echo $this->load->view('security/page_footer', '', TRUE);
+				redirect( site_url( LOGIN_PAGE . '?logout=0', $redirect_protocol ) );
 			}
 	}
 	

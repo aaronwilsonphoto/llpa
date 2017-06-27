@@ -36,7 +36,7 @@ if( ! isset( $on_hold_message ) )
 
 	if( $this->input->get('logout') )
 	{
-	$message = "You are logged out";
+	$message = "You have been logged out";
 	echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 
@@ -59,10 +59,10 @@ if( ! isset( $on_hold_message ) )
 		          <div class = "container">
 		            <div class="wrapper">
 		              <div class="form-signin"> 
-		                  <h3 class="form-signin-heading">Employee Log In</h3>
+		                  <h3 class="form-signin-heading">Employee Login</h3>
 
 			                <label for="login_string" class="form_label">Email</label>
-							<input type="text" name="login_string" id="login_string" class="form-control" autocomplete="off" maxlength="255" placeholder="Username" required="" autofocus="" />
+							<input type="text" name="login_string" id="login_string" class="form-control" autocomplete="off" maxlength="255" placeholder="employee@email.com" required="" autofocus="" />
 
 							<br />
 
