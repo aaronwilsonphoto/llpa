@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
  <div class="jumbotron text-center">
-  <h1>Admin Dashboard</h1>
+  <h1>Employee Dashboard</h1>
   <p>Resize this responsive page to see the effect!</p> 
 </div>
   

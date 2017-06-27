@@ -156,4 +156,4 @@ if( isset( $show_form ) )
 	<?php
 }
 /* End of file recover_form.php */
-/* Location: /views/examples/recover_form.php */
+/* Location: /views/security/recover_form.php */

@@ -13,6 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link        http://community-auth.com
  */
 ?>
+<div class="position">
+	<div class = "container">
 
 <h1>Account Recovery - Stage 2</h1>
 
@@ -49,7 +51,7 @@ if( isset( $validation_passed ) )
 				You have successfully changed your password.
 			</p>
 			<p>
-				You can now <a href="/' . LOGIN_PAGE . '">login</a>
+				You can now <a href="/login">login</a>
 			</p>
 		</div>
 	';
@@ -67,7 +69,7 @@ if( isset( $recovery_error ) )
 				Account recovery links expire after 
 				' . ( (int) config_item('recovery_code_expiration') / ( 60 * 60 ) ) . ' 
 				hours.<br />You will need to use the 
-				<a href="/security/recover">Account Recovery</a> form 
+				Account Recovery form 
 				to send yourself a new link.
 			</p>
 		</div>
@@ -173,6 +175,8 @@ if( $showform == 1 )
 					</div>
 				</form>
 			</div>
+	</div>
+</div>
 		<?php
 	}
 }

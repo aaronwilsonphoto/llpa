@@ -37,16 +37,32 @@ class Security extends MY_Controller
 	 */
 	public function index()
 	{
-		if( $this->require_role('admin') )
-		{
-			echo $this->load->view('security/page_header', '', TRUE);
+			if ( $this->verify_min_level(9) )
+			{
+				echo $this->load->view('security/page_header', '', TRUE);
 
-			$message = "You are logged in as Admin!";
-			echo "<script type='text/javascript'>alert('$message');</script>";
-			echo $this->load->view('security/admin', '', TRUE);
+				$message = "You are logged in as Admin!";
+				echo "<script type='text/javascript'>alert('$message');</script>";
+				echo $this->load->view('security/admin', '', TRUE);
 
-			echo $this->load->view('security/page_footer', '', TRUE);
-		}
+				echo $this->load->view('security/page_footer', '', TRUE);
+			}
+			elseif( $this->verify_min_level(6) )
+			{
+				echo $this->load->view('security/page_header', '', TRUE);
+
+				$message = "You are logged in as Employee!";
+				echo "<script type='text/javascript'>alert('$message');</script>";
+				echo $this->load->view('security/employee', '', TRUE);
+
+				echo $this->load->view('security/page_footer', '', TRUE);
+			}
+			else
+			{		
+				echo $this->load->view('security/page_header', '', TRUE);
+				echo '<p>Please Login <a href = "login">here</a></p>';	
+				echo $this->load->view('security/page_footer', '', TRUE);
+			}
 	}
 	
 	// -----------------------------------------------------------------------
@@ -58,12 +74,12 @@ class Security extends MY_Controller
 	 */
 	public function home()
 	{
-		if( $this->require_role('employee') )
+		if( $this->verify_min_level(6) )
 		{
 		
 		echo $this->load->view('security/page_header', '', TRUE);
 
-		echo '<p>You are logged in as Employee</p>';
+		echo '<p>You are an Employee at the Loveland Living Planet Aquarium</p>';
 
 		echo $this->load->view('security/page_footer', '', TRUE);
 
@@ -200,6 +216,7 @@ class Security extends MY_Controller
 			'passwd'     => 'Aw907074',
 			'email'      => 'aaronwilsonprofessional@gmail.com',
 			'auth_level' => '9', // 9 if you want to login @ security/index.
+
 		];
 
 		$this->is_logged_in();
