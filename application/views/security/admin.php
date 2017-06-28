@@ -24,20 +24,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   
 <div class="container">
   <div class="row">
+
     <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
+
+    	<h3>Column 1</h3>
+    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+    	<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+
+    		<?php
+			$link_protocol = USE_SSL ? 'https' : NULL;
+			?>
+      		<a class="login" href="<?php echo site_url('security/create_user', $link_protocol); ?>">
+				Add Employee
+			</a>
+
+		</p>
+
+    </div> <!-- End left column -->
+
+
     <div class="col-sm-4">
       <h3>Column 2</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
+    </div> <!-- End center column -->
+
+
     <div class="col-sm-4">
       <h3>Column 3</h3>        
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
+    </div> <!-- End right column -->
+
+
   </div>
 </div>

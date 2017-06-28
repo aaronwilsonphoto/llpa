@@ -84,45 +84,6 @@ class Security extends MY_Controller
 		}
 	}
 	
-	// -----------------------------------------------------------------------
-
-	/**
-	 * Demonstrate an optional login.
-	 * Remember to add "security/optional_login_test" to the
-	 * allowed_pages_for_login array in config/authentication.php.
-	 *
-	 * Notice that we are using verify_min_level to check if
-	 * a user is already logged in.
-	 */
-	public function optional_login_test()
-	{
-		if( $this->verify_min_level(1) )
-		{
-			$page_content = '<p>Although not required, you are logged in!</p>';
-		}
-		elseif( $this->tokens->match && $this->optional_login() )
-		{
-			// Let Community Auth handle the login attempt ...
-		}
-		else
-		{
-			// Notice parameter set to TRUE, which designates this as an optional login
-			$this->setup_login_form(TRUE);
-
-			$page_content = '<p>You are not logged in, but can still see this page.</p>';
-
-			// Form helper needed
-			$this->load->helper('form');
-
-			$page_content .= $this->load->view('security/login_form', '', TRUE);
-		}
-
-		echo $this->load->view('security/page_header', '', TRUE);
-
-		echo $page_content;
-
-		echo $this->load->view('security/page_footer', '', TRUE);
-	}
 	
 	// -----------------------------------------------------------------------
 
@@ -208,18 +169,29 @@ class Security extends MY_Controller
 	 */
 	public function create_user()
 	{
+		if ( $this->verify_min_level(9) )
+		{
+		// Get Elements from Form
+			$first_name = $this->input->post('first_name');
+			$last_name = $this->input->post('last_name');
+			$to_email = $this->input->post('email');
+			$department = $this->input->post('department');
+			$auth_level = $this->input->post('optradio');
+
 		// Customize this array for your user
 		$user_data = [
-			'username'   => 'qwerty',
+			'username'   => $to_email,
 			'passwd'     => 'Aw907074',
-			'email'      => 'aaronwilsonprofessional@gmail.com',
-			'auth_level' => '9', // 9 if you want to login @ security/index.
-
+			'email'      => $to_email,
+			'auth_level' => $auth_level,
+			'first_name' => $first_name,
+			'last_name'  => $last_name,
+			'department' => $department,
 		];
 
-		$this->is_logged_in();
 
 		echo $this->load->view('security/page_header', '', TRUE);
+		echo $this->load->view('security/add_user', '', TRUE);
 
 		// Load resources
 		$this->load->helper('auth');
@@ -268,6 +240,7 @@ class Security extends MY_Controller
 			]
 		];
 
+
 		$this->form_validation->set_rules( $validation_rules );
 
 		if( $this->form_validation->run() )
@@ -294,6 +267,20 @@ class Security extends MY_Controller
 		}
 
 		echo $this->load->view('security/page_footer', '', TRUE);
+		} /*End Admin Check - verify_min_level(9)*/
+
+		elseif( $this->verify_min_level(6) )
+			{
+				echo $this->load->view('security/page_header', '', TRUE);
+				echo $this->load->view('security/employee', '', TRUE);
+				echo $this->load->view('security/page_footer', '', TRUE);
+			}
+		else
+			{		
+				redirect( site_url( LOGIN_PAGE . '?logout=0', $redirect_protocol ) );
+			}
+
+
 	}
 	
 	// -----------------------------------------------------------------------
