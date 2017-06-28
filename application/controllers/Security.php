@@ -176,7 +176,7 @@ class Security extends MY_Controller
 			$last_name = $this->input->post('last_name');
 			$to_email = $this->input->post('email');
 			$department = $this->input->post('department');
-			$auth_level = $this->input->post('optradio');
+			$auth_level = $this->input->post('auth_level');
 
 		// Customize this array for your user
 		$user_data = [
@@ -191,7 +191,7 @@ class Security extends MY_Controller
 
 
 		echo $this->load->view('security/page_header', '', TRUE);
-		echo $this->load->view('security/add_user', '', TRUE);
+		echo $this->load->view('security/myform', '', TRUE);
 
 		// Load resources
 		$this->load->helper('auth');
@@ -205,11 +205,21 @@ class Security extends MY_Controller
 			[
 				'field' => 'username',
 				'label' => 'username',
-				'rules' => 'max_length[17]|is_unique[' . db_table('user_table') . '.username]',
+				'rules' => 'max_length[35]|is_unique[' . db_table('user_table') . '.username]',
 				'errors' => [
 					'is_unique' => 'Username already in use.'
 				]
 			],
+
+			[
+				'field' => 'first_name',
+				'label' => 'first_name',
+				'rules' => 'max_length[35]',
+				'errors' => [
+					'max_length' => 'Name must be under 35 characters long.'
+				]
+			],
+
 			[
 				'field' => 'passwd',
 				'label' => 'passwd',
@@ -263,7 +273,6 @@ class Security extends MY_Controller
 		}
 		else
 		{
-			echo '<h1>User Creation Error(s)</h1>' . validation_errors();
 		}
 
 		echo $this->load->view('security/page_footer', '', TRUE);
@@ -631,48 +640,6 @@ class Security extends MY_Controller
 	
 	// -----------------------------------------------------------------------
 
-	/**
-	 * If you are using some other way to authenticate a created user, 
-	 * such as Facebook, Twitter, etc., you will simply call the user's 
-	 * record from the database, and pass it to the maintain_state method.
-	 *
-	 * So, you must know either the user's username or email address to 
-	 * log them in.
-	 *
-	 * How you would safely implement this in your application is your choice.
-	 * Please keep in mind that such functionality bypasses all of the 
-	 * checks that Community Auth does during a normal login.
-	 */
-	public function social_login()
-	{
-		// Add the username or email address of the user you want logged in:
-		$username_or_email_address = '';
-
-		if( ! empty( $username_or_email_address ) )
-		{
-			$auth_model = $this->authentication->auth_model;
-
-			// Get normal authentication data using username or email address
-			if( $auth_data = $this->{$auth_model}->get_auth_data( $username_or_email_address ) )
-			{
-				/**
-				 * If redirect param exists, user redirected there.
-				 * This is entirely optional, and can be removed if 
-				 * no redirect is desired.
-				 */
-				$this->authentication->redirect_after_login();
-
-				// Set auth related session / cookies
-				$this->authentication->maintain_state( $auth_data );
-			}
-		}
-		else
-		{
-			echo 'Example requires that you set a username or email address.';
-		}
-	}
-	
-	// -----------------------------------------------------------------------
 }
 
 /* End of file Security.php */

@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <input type="email" name="emailcnf" class="form-control" placeholder="email@example.com" value="<?php echo set_value('emailcnf'); ?>" />
           <?php echo form_error('emailcnf'); ?> 
 
-          <div><br /><input class="btn btn-action" type="submit" value="SEND MAIL" /></div>
+          <div><br /><input class="btn btn-action" type="submit" value="Submit" /></div>
 
           </form>
             </div>     

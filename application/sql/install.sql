@@ -111,8 +111,11 @@ CREATE TABLE IF NOT EXISTS `username_or_email_on_hold` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
+  `first_name` varchar(25) DEFAULT NOT NULL,
+  `last_name` varchar(25) DEFAULT NOT NULL,
+  `department` varchar(25) DEFAULT NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
-  `username` varchar(12) DEFAULT NULL,
+  `username` varchar(25) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `auth_level` tinyint(3) unsigned NOT NULL,
   `banned` enum('0','1') NOT NULL DEFAULT '0',
