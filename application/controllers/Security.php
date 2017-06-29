@@ -40,26 +40,19 @@ class Security extends MY_Controller
 			if ( $this->verify_min_level(9) )
 			{
 				echo $this->load->view('security/page_header', '', TRUE);
-
-				$message = "You are logged in as Admin!";
-				echo "<script type='text/javascript'>alert('$message');</script>";
 				echo $this->load->view('security/admin', '', TRUE);
-
 				echo $this->load->view('security/page_footer', '', TRUE);
 			}
-			elseif( $this->verify_min_level(6) )
+			elseif ( $this->verify_min_level(6) )
 			{
 				echo $this->load->view('security/page_header', '', TRUE);
-
-				$message = "You are logged in as Employee!";
-				echo "<script type='text/javascript'>alert('$message');</script>";
 				echo $this->load->view('security/employee', '', TRUE);
-
 				echo $this->load->view('security/page_footer', '', TRUE);
-			}
+			}	
 			else
-			{		
-				redirect( site_url( LOGIN_PAGE . '?logout=0', $redirect_protocol ) );
+			{	
+				// Set redirect protocol
+				redirect( site_url( 'login') );
 			}
 	}
 	
@@ -74,13 +67,15 @@ class Security extends MY_Controller
 	{
 		if( $this->verify_min_level(6) )
 		{
-		
-		echo $this->load->view('security/page_header', '', TRUE);
-
-		echo '<p>You are an Employee at the Loveland Living Planet Aquarium</p>';
-
-		echo $this->load->view('security/page_footer', '', TRUE);
-
+			echo $this->load->view('security/page_header', '', TRUE);
+			echo $this->load->view('security/employee', '', TRUE);
+			echo $this->load->view('security/page_footer', '', TRUE);
+		}
+		else
+		{	
+			// Set redirect protocol
+			$redirect_protocol = USE_SSL ? 'https' : NULL;
+			redirect( site_url( LOGIN_PAGE . '?logout=0', $redirect_protocol ) );
 		}
 	}
 	

@@ -51,7 +51,7 @@ if( isset( $validation_passed ) )
 				You have successfully changed your password.
 			</p>
 			<p>
-				You can now <a href="/login">login</a>
+				You can now <a href="'. base_url() .'">login</a>
 			</p>
 		</div>
 	';

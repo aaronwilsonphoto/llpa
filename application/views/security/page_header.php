@@ -42,7 +42,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="<?php echo base_url(); ?>index.php/login">LLPA Employee Network</a>
+          <a class="navbar-brand" href="<?php echo base_url(); ?>index.php/">LLPA Employee Network</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">

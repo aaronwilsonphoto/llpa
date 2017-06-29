@@ -85,7 +85,7 @@ class Security_model extends MY_Model {
 		$this->load->library('form_validation');
 
 		// Load form validation rules
-		$this->load->model('Security/validation_callables');
+		$this->load->model('security/validation_callables');
 		$this->form_validation->set_rules([
 			[
 				'field' => 'passwd',

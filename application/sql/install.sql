@@ -111,9 +111,9 @@ CREATE TABLE IF NOT EXISTS `username_or_email_on_hold` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `first_name` varchar(25) DEFAULT NOT NULL,
-  `last_name` varchar(25) DEFAULT NOT NULL,
-  `department` varchar(25) DEFAULT NOT NULL,
+  `first_name` varchar(25) DEFAULT NULL,
+  `last_name` varchar(25) DEFAULT NULL,
+  `department` varchar(25) DEFAULT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `username` varchar(25) DEFAULT NULL,
   `email` varchar(255) NOT NULL,

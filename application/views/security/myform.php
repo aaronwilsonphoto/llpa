@@ -35,6 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="form-group">
 			<h5><label for="sel1">Department</label></h5>
 			<select name="department" class="form-control input-lg" id="sel1" >
+			<option value="Admin" <?php echo set_select('department', 'Admin', TRUE); ?> >Admin</option>
 		    <option value="Human Resources" <?php echo set_select('department', 'Human Resources', TRUE); ?> >Human Resources</option>
 		    <option value="Husbandry" <?php echo set_select('department', 'Husbandry'); ?> >Husbandry</option>
 			<option value="Philanthropy" <?php echo set_select('department', 'Philanthropy'); ?> >Philanthropy</option>

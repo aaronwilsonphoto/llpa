@@ -54,4 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['key'] = 'Key_creator';
 $route[LOGIN_PAGE] = 'security/login';
-$route['home'] = 'security';
+$route['home'] = 'security/home';
