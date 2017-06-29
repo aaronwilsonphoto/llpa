@@ -36,7 +36,7 @@ class Form extends MY_Controller {
         // Customize this array for your user
         $user_data = [
             'username'   => $to_email,
-            'passwd'     => 'Aw907074',
+            'passwd'     => 'Temporary1',
             'email'      => $to_email,
             'auth_level' => $auth_level,
             'first_name' => $first_name,
